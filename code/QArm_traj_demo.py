@@ -8,7 +8,7 @@ directory_path = os.path.dirname(constants.path_to_controllers)
 if directory_path not in sys.path:
     sys.path.append(directory_path)
 
-from QArm_traj_controllers import CartesianJacobianController, JointSpaceController
+from QArm_traj_controllers import CartesianJacobianController, JointSpaceController, LetterTrajectoryController
 
 
 def main():
@@ -42,9 +42,13 @@ def main():
     if choice == '1':
         print("\nStarting Cartesian Controller...")
         controller = CartesianJacobianController(trajectory_points, int(mode))
-    else:
+    elif choice == '2':
         print("\nStarting Joint Space Controller...")
         controller = JointSpaceController(trajectory_points, int(mode))
+    elif choice == '3':
+        print("\nStarting Letter Controller...")
+        initials = input("Enter 2 letters: ")
+        controller = LetterTrajectoryController(initials, int(mode))
 
     # This handles the hardware connection, 3D plotting, and trajectory loop automatically
     controller.run()
