@@ -17,3 +17,9 @@ def forward_kin(phi):
     rotation = None
 
     return location, rotation
+
+if __name__ == '__main__':
+    phi = np.array([0, 0, 0, 0])
+    location, rotation = forward_kin(phi)
+    print(location)
+    print(rotation)
