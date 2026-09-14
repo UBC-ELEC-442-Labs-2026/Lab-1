@@ -6,7 +6,7 @@ directory_path = os.path.dirname(constants.path_to_controllers)
 
 if directory_path not in sys.path:
     sys.path.append(directory_path)
-    
+
 from QArm_traj_controllers import CartesianJacobianController, JointSpaceController, LetterTrajectoryController
 
 
@@ -54,6 +54,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-#! Update the import path
