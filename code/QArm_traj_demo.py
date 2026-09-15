@@ -26,7 +26,7 @@ def main():
     #     [0.73, 0.0, 0.09, 6.0]
     # ]
 
-    #! Check for waypoints and trajectories outside workspace, but esspeically in the ground
+    #! Check for waypoints and trajectories outside workspace, but especially in the ground
 
     mode = "-1"
     while(int(mode) != 0 and int(mode) != 1):

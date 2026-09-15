@@ -9,7 +9,7 @@ import time
 directory_path = os.path.dirname(constants.path_to_interface)
 if directory_path not in sys.path:
     sys.path.append(directory_path)
-from QArm_functions import QArm_Lab_interface
+from QArm_functions import QArm_Lab_interface # type: ignore
 
 
 #! convert to a starting joint value
