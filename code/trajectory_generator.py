@@ -1,14 +1,17 @@
-import numpy as np
-from scipy.interpolate import CubicSpline
 import os
 import sys
+import time
+
+import numpy as np
+from scipy.interpolate import CubicSpline
+
 import constants
 from pal.products.qarm import QArm
-import time
 
 directory_path = os.path.dirname(constants.path_to_interface)
 if directory_path not in sys.path:
     sys.path.append(directory_path)
+
 from QArm_functions import QArm_Lab_interface # type: ignore
 
 

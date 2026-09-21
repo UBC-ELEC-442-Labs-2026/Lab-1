@@ -1,5 +1,6 @@
 import os
 import sys
+
 import constants
 
 directory_path = os.path.dirname(constants.path_to_controllers)
