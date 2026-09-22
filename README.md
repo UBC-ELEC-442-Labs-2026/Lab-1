@@ -1,10 +1,12 @@
 # Lab 1
 
-This repo contains the code and documents needed to complete Lab 1.
+This repo contains the code and documents needed to complete Lab 1. Requires `lab-machine-env`.
 
 ## Important Notes
 
-- If you are running this on your own computer, make sure to also clone `lab-machine-env` and edit the values in `constants.py` to reflect your file paths. The main one is in
+- If you are running this on your own computer, make sure to also clone `lab-machine-env` and edit the values in `constants.py` to reflect your file paths. 
+
+## Bugs
 
 - The Quanser "QArmKeyboardNavigator" has a bug, if you run an error message involving following:
     ```
