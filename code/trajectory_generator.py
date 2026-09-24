@@ -15,31 +15,50 @@ if directory_path not in sys.path:
 from QArm_functions import QArm_Lab_interface # type: ignore
 
 
-#! convert to a starting joint value
+x_dist = 0.4
 trajectory_points = [
     # [X, Y, Z]
-    [0.5, 0.4, 0.45],
-    [0.5, -0.4, 0.45]
+    [x_dist, 0, 0.5], # Start
+    [x_dist, -0.4, 0.3], 
+    [x_dist, 0, 0.1], # opposite side
+    [x_dist, 0.4, 0.3], 
+    [x_dist, 0, 0.5] # Start (needed for periodicity)
 ]
 
-start_phi = np.array([0.0, 0.0, 0.0, 0.0])
+t = np.array([0, 4, 8, 12, 16]) # Time stamps for each knot point
+
 QArm_Interface = QArm_Lab_interface()
 
+# Find starting joint positions
+start_phi = QArm_Interface.inverse_kinematics(trajectory_points[0], 0, np.array([0, 0, 0, 0]))[1]
 
 mode = "-1"
-while(int(mode) != 0 and int(mode) != 1):
+while(mode != '0' and mode != '1'):
     mode = input("Enter 1 for real hardware, 0 for simulation: ")
 
 with QArm(hardware=int(mode), readMode=0) as myArm:
 
-    QArm_Interface.attach_QArm(myArm)
+    # Initilize cubic spline
+    Kp = 0.5
+    spline = CubicSpline(t, trajectory_points, axis=0, bc_type='periodic')
+    spline_vel = spline.derivative()
 
-    #TODO: Travel back and forth between the waypoints using cublic spline trajectory generation through task space and differential kinematics (use knot points and forward kin to deal with error)
+    QArm_Interface.attach_QArm(myArm)
+    QArm_Interface.write_to_arm(start_phi) # move arm to starting position
+    QArm_Interface.close_gripper()
+    time.sleep(1)
+
+    #TODO: Implement trajectory generation as detailed in Exercise 5 and Concept Review
     
-    # Use the following helper functions
-    # QArm_Interface.write_to_arm(joint_positions)
-    # phi = QArm_Interface.read_from_arm()
-    # J = QArm_Interface.Jacobian(phi)
-    # p4, _ = QArm_Interface.forward_kinematics(phi)
+    # Use the following helper functions:
+    # - QArm_Interface.write_to_arm(joint_positions)
+    # - phi = QArm_Interface.read_from_arm()
+    # - J_inv = QArm_Interface.Inv_Jacobian(phi)
+    # - p4, _ = QArm_Interface.forward_kinematics(phi)
+    #
+    # - spline(t) to find position at a certain time
+    # - spline_vel(t) to find velocity at a certain time
+    #
+    # - time.time() gives current time
 
     time.sleep(4)
