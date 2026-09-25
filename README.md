@@ -13,9 +13,8 @@ Welcome to the first lab!
    Set up the Lab 1 repository, VS Code, Python interpreter, Git workflow, and submission process on your personal computer.
    - As of September 24, 2026 there remains a bug in the Quanser Academic Resources downloaded in step 1. You can fix it by reading the [bug fix](bug-fix.md).
 
-3. **Lab Computer Quick Start**  
+3. **[Lab Computer Quick Start](lab-computer-quick-start.md)**  
    Instructions for using the preconfigured computers during the in-person lab.  
-   *This guide is still being prepared.*
 
 ## Bugs
 
