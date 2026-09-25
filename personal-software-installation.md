@@ -146,4 +146,4 @@ Note: This guide follows Quanser’s default setup and installs the required Pyt
 
 ## 9. Next Step: Configure Software Setup
 
-Congrats! That's all the software you needed to install. Navigate to `personal-computer-setup.md` to continue the setup.
+Congrats! That's all the software you needed to install. Navigate to [personal computer setup](#personal-computer-setup.md) to continue the setup.
